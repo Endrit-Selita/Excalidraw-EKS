@@ -1,6 +1,4 @@
-# =========================================
 # Stage 1: Build the React.js Application
-# =========================================
 
 # Use a lightweight Node.js image for building (customizable via ARG)
 FROM node:20-alpine AS builder
@@ -24,9 +22,7 @@ RUN yarn add -W cross-env
 # Build the React.js application (outputs to /app/dist)
 RUN yarn build
 
-# =========================================
 # Stage 2: Prepare Nginx to Serve Static Files
-# =========================================
 
 FROM nginx:alpine AS runner
 
