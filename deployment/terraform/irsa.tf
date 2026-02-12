@@ -5,7 +5,7 @@ module "cert_manager_irsa_role" {
 
   role_name                     = "Cert-manager"
   attach_cert_manager_policy    = true
-  cert_manager_hosted_zone_arns = local.hosted_zone_arn
+  cert_manager_hosted_zone_arns = [local.hosted_zone_arn]
 
   oidc_providers = {
     eks = {
@@ -26,7 +26,7 @@ module "external_dns_isra_role" {
 
   role_name                     = "external-dns"
   attach_external_dns_policy    = true
-  external_dns_hosted_zone_arns = local.hosted_zone_arn
+  external_dns_hosted_zone_arns = [local.hosted_zone_arn]
 
   oidc_providers = {
     eks = {
