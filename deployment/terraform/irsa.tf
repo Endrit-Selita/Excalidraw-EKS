@@ -34,4 +34,7 @@ module "external_dns_isra_role" {
       namespace_service_accounts = ["external-dns:external-dns"] # name space : service account
     }
   }
+
+  tags = local.tags
+
 }
