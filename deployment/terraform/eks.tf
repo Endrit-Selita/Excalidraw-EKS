@@ -6,5 +6,7 @@ module "eks" {
   kubernetes_version = "1.33"
 
   endpoint_public_access = true
+  endpoint_public_access_cidrs = ["0.0.0.0/0"]
 
+  enable_irsa = true
 }
