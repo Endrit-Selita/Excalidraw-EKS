@@ -8,5 +8,7 @@ module "eks" {
   endpoint_public_access = true
   endpoint_public_access_cidrs = ["0.0.0.0/0"]
 
-  enable_irsa = true
+  enable_irsa = true # I am roles for service account, allows us to create i am roles and associate them to service accounts on k8s
+
+  vpc_id = module.vpc.id
 }
