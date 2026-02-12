@@ -1,10 +1,13 @@
 terraform {
+  required_version = ">= 1.0.0"
+
   backend "s3" {
-    bucket = "eks-project-tfstate"
-    key = "state/terraform.tfstate"
+    bucket = "excalidraw-eks-project"
+    key = "terraform.tfstate"
     region = "eu-west-2"
     encrypt = true
     use_lockfile = true
+    # enabled version on the aws console
   }
 
   required_providers {
