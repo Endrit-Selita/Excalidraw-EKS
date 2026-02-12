@@ -13,5 +13,6 @@ module "vpc" {
 
   enable_nat_gateway = true
   single_nat_gateway = false
-  
+
+  enable_dns_hostnames = true
 }
