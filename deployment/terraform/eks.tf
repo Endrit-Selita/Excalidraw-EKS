@@ -10,5 +10,7 @@ module "eks" {
 
   enable_irsa = true # I am roles for service account, allows us to create i am roles and associate them to service accounts on k8s
 
-  vpc_id = module.vpc.id
-}
+  vpc_id = module.vpc.vpc_id
+  subnet_ids = module.vpc.private_subnets
+  
+  }
