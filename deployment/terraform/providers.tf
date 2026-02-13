@@ -3,7 +3,7 @@ terraform {
 
   backend "s3" {
     bucket       = "excalidraw-eks-project"
-    key          = "terraform.tfstate"
+    key          = "state/terraform.tfstate"
     region       = "eu-west-2"
     encrypt      = true
     use_lockfile = true
