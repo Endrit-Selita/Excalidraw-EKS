@@ -6,3 +6,9 @@
 
 #installCRDs has also now been deprecated: use crds.enabled and crds.keep instead.
 
+crds:
+ enabled: true
+
+extraArgs:
+- --dns01-recursive-nameservers-only
+- --dns01-recursive-nameservers="8.8.8.8:53"
