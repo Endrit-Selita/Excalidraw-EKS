@@ -1,0 +1,8 @@
+# ingressShim:
+# defaultACMEChallengeType: dns01
+# defaultACMEDNS01ChallengeProvider: route53
+# These configurations have been removed from the newest version on cert manager
+  # they will be in ther cert man manifest
+
+#installCRDs has also now been deprecated: use crds.enabled and crds.keep instead.
+
