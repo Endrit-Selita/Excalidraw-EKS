@@ -24,3 +24,16 @@ resource "helm_release" "cert-manager" {
   values = [ file("${path.module}/deployment/helm-values/cert-manager.yaml") ]
 
 }
+
+# external dns
+resource "helm_release" "external-dns" {
+  name = "external-dns"
+  repository = "https://kubernetes-sigs.github.io/external-dns/"
+  chart = "external-dns"
+
+  create_namespace = true
+  namespace = "external-dns"
+
+  values = [ file("${path.module}/deployment/helm-values/external-dns.yaml") ]
+
+}
