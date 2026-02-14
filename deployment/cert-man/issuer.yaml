@@ -1,0 +1,21 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: issuer
+spec:
+  acme:
+    email: eselita2001@gmail.com
+    server: "https://acme-v02.api.letsencrypt.org/directory" # staging server is https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef: # Secret resource that will be used to store the account's private key.
+      name: issuer
+    solvers:
+    - dns01:
+      route53:
+        hostedZoneID: Z00692303651T2VZZ60MN
+        region: eu-west-2
+    selector:
+      dnsZones:
+      - tahirbajramselita.co.uk
+    http01:
+      ingress:
+        class: nginx
