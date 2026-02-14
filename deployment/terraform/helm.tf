@@ -1,12 +1,12 @@
 # nginx ingress
 
 resource "helm_release" "nginx_ingress" {
-  name       = "nginx-ingress-controller"
-  repository = "https://helm.nginx.com/stable"
-  chart      = "nginx-ingress-controller"
+  name       = "nginx-ingress"
+  repository = "https://kubernetes.github.io/ingress-nginx"
+  chart      = "ingress-nginx"
 
   create_namespace = true
-  namespace        = "nginx-ingress-controller"
+  namespace        = "nginx-ingress"
 
   depends_on = [module.eks]
 }
@@ -21,7 +21,7 @@ resource "helm_release" "cert-manager" {
   create_namespace = true
   namespace        = "cert-manager"
 
-  values = [file("${path.module}/deployment/helm-values/cert-manager.yaml")]
+  values = [file("${path.module}/../helm-values/cert-manager.yaml")]
 
 }
 
@@ -34,6 +34,6 @@ resource "helm_release" "external-dns" {
   create_namespace = true
   namespace        = "external-dns"
 
-  values = [file("${path.module}/deployment/helm-values/external-dns.yaml")]
+  values = [file("${path.module}/../helm-values/external-dns.yaml")]
 
 }
