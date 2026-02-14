@@ -1,4 +1,4 @@
-# Cert Manager
+# Cert Manager Pod Identity
 
 module "cert_manager_pod_identity" {
   source = "terraform-aws-modules/eks-pod-identity/aws"
@@ -10,13 +10,13 @@ module "cert_manager_pod_identity" {
 
   associations = {
     this = {
-      cluster_name    = module.eks_
+      cluster_name    = module.eks.cluster_name
       namespace       = "cert-manager"
       service_account = "cert-manager"
     }
   }
 
-  tags = {
-    local.tags
-  }
+  tags = local.tags
+
 }
+
