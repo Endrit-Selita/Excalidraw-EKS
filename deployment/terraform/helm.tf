@@ -10,11 +10,13 @@ resource "helm_release" "nginx_ingress" {
 }
 
 # Cert Manager
-resource "helm_release" "cert_manager" {
-  name = "ngcert_manager"
+resource "helm_release" "cert-manager" {
+  name = "cert-manager"
   repository = "https://charts.jetstack.io"
-  chart = "cert_manager"
+  chart = "cert-manager"
+  version    = "v1.16.0"
 
   create_namespace = true
-  namespace = "cert_manager"
+  namespace = "cert-manager"
+
 }

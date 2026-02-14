@@ -12,3 +12,11 @@ crds:
 extraArgs:
 - --dns01-recursive-nameservers-only
 - --dns01-recursive-nameservers="8.8.8.8:53"
+
+serviceAccount:
+  annotations:
+    eks.amazonaws.com/role-arn: "${role_arn}"
+
+serviceAccount:
+  annotations:
+    eks.amazonaws.com/role-arn: "$"
