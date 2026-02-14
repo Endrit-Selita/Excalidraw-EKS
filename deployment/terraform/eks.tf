@@ -12,7 +12,7 @@ module "eks" {
     }
     kube-proxy = {}
     vpc-cni = {
-      before_compute = true
+      before_compute              = true
       resolve_conflicts_on_create = "OVERWRITE"
     }
 

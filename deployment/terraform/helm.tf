@@ -1,39 +1,39 @@
 # nginx ingress
 
 resource "helm_release" "nginx_ingress" {
-  name = "nginx-ingress-controller"
+  name       = "nginx-ingress-controller"
   repository = "https://helm.nginx.com/stable"
-  chart = "nginx-ingress-controller"
+  chart      = "nginx-ingress-controller"
 
   create_namespace = true
-  namespace = "nginx-ingress-controller"
+  namespace        = "nginx-ingress-controller"
 
-  depends_on = [ module.eks ]
+  depends_on = [module.eks]
 }
 
 # Cert Manager
 resource "helm_release" "cert-manager" {
-  name = "cert-manager"
+  name       = "cert-manager"
   repository = "https://charts.jetstack.io"
-  chart = "cert-manager"
+  chart      = "cert-manager"
   version    = "v1.16.0"
 
   create_namespace = true
-  namespace = "cert-manager"
+  namespace        = "cert-manager"
 
-  values = [ file("${path.module}/deployment/helm-values/cert-manager.yaml") ]
+  values = [file("${path.module}/deployment/helm-values/cert-manager.yaml")]
 
 }
 
 # external dns
 resource "helm_release" "external-dns" {
-  name = "external-dns"
+  name       = "external-dns"
   repository = "https://kubernetes-sigs.github.io/external-dns/"
-  chart = "external-dns"
+  chart      = "external-dns"
 
   create_namespace = true
-  namespace = "external-dns"
+  namespace        = "external-dns"
 
-  values = [ file("${path.module}/deployment/helm-values/external-dns.yaml") ]
+  values = [file("${path.module}/deployment/helm-values/external-dns.yaml")]
 
 }

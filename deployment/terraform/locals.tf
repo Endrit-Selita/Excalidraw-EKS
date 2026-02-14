@@ -8,7 +8,7 @@ locals {
 
   tags = {
     Environment = "production"
-    project    = "eks"
-    name       = "Endrit"
+    project     = "eks"
+    name        = "Endrit"
   }
 }
