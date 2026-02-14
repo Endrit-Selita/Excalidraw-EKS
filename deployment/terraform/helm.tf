@@ -7,6 +7,8 @@ resource "helm_release" "nginx_ingress" {
 
   create_namespace = true
   namespace = "nginx-ingress-controller"
+
+  depends_on = [ module.eks ]
 }
 
 # Cert Manager
@@ -18,5 +20,7 @@ resource "helm_release" "cert-manager" {
 
   create_namespace = true
   namespace = "cert-manager"
+
+  values = [ file("${path.module}/deployment/helm-values/cert-manager.yaml") ]
 
 }
