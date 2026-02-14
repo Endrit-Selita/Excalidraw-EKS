@@ -3,7 +3,7 @@ module "eks" {
   version = "21.15.1"
 
   name               = local.name
-  kubernetes_version = "1.33"
+  kubernetes_version = "1.31"
 
   addons = {
     coredns = {}
@@ -15,7 +15,7 @@ module "eks" {
       before_compute = true
       resolve_conflicts_on_create = "OVERWRITE"
     }
-    
+
   }
 
   endpoint_public_access       = true

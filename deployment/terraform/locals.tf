@@ -7,7 +7,7 @@ locals {
   hosted_zone_arn = "arn:aws:route53:::hostedzone/Z00692303651T2VZZ60MN"
 
   tags = {
-    Enviorment = "production"
+    Environment = "production"
     project    = "eks"
     name       = "Endrit"
   }
