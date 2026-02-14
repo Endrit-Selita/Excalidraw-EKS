@@ -41,3 +41,25 @@ module "external_dns_pod_identity" {
   tags = local.tags
 
 }
+
+# AWS EBS volumes Pod Identity (for CI/Cd and Monitoring)
+
+module "aws_ebs_csi_pod_identity" {
+  source = "terraform-aws-modules/eks-pod-identity/aws"
+
+  name = "aws-ebs-csi"
+
+  attach_aws_ebs_csi_policy = true
+  aws_ebs_csi_kms_arns      = [local.hosted_zone_arn]
+
+  associations = {
+    this = {
+      cluster_name    = "aws-ebs-csi"
+      namespace       = "kube-system"
+      service_account = "ebs-csi-controller-sa"
+    }
+  }
+
+  tags = local.tags
+  
+}
