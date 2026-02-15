@@ -53,7 +53,7 @@ module "aws_ebs_csi_pod_identity" {
 
   associations = {
     this = {
-      cluster_name    = "aws-ebs-csi"
+      cluster_name    = "module.eks.cluster_name"
       namespace       = "kube-system"
       service_account = "ebs-csi-controller-sa"
     }
