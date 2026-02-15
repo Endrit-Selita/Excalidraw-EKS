@@ -21,6 +21,11 @@ resource "helm_release" "cert-manager" {
   namespace        = "cert-manager"
 
   values = [file("${path.module}/../helm-values/cert-manager.yaml")]
+  
+  depends_on = [
+    helm_release.nginx_ingress,       
+    module.cert_manager_pod_identity
+  ]
 
 }
 
@@ -34,6 +39,11 @@ resource "helm_release" "external-dns" {
   namespace        = "external-dns"
 
   values = [file("${path.module}/../helm-values/external-dns.yaml")]
+ 
+  depends_on = [
+    helm_release.nginx_ingress,       
+    module.external_dns_pod_identity
+  ]
 
 }
 
@@ -50,4 +60,28 @@ resource "helm_release" "argocd_deploy" {
 
   values = [file("${path.module}/../helm-values/argocd.yaml")]
 
+  depends_on = [
+      helm_release.nginx_ingress,
+      helm_release.cert_manager,
+      helm_release.external_dns
+    ]
+
+}
+
+# kubernetes prometheus stack
+resource "helm_release" "kube_prom_stack" {
+  name       = "k8s-prom-stack"
+  repository = "https://prometheus-community.github.io/helm-charts" # from https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
+  chart      = "kube-prometheus-stack"
+
+  create_namespace = true
+  namespace        = "monitoring"
+
+  values = [file("${path.module}/../helm-values/prometheus_grafana.yaml")]
+  
+  depends_on = [
+      helm_release.nginx_ingress,
+      helm_release.cert_manager,
+      helm_release.external_dns
+    ]
 }
