@@ -1,0 +1,18 @@
+server:
+  extraArgs:
+  - --insecure # disable SSL redirection as our ingress controller handles this
+
+service:
+  type: ClusterIP
+ingress:
+  enabled: true
+  ingressClassName: nginx
+  annotations:
+    nginx.org/hsts: "false" # disable HSTS as our ingress controller handles this
+    cert-manager.io/cluster-issuer: issuer #name in cert-man/issuer.yaml
+  host:
+  - argocd.tahirbajramselita.co.uk
+  tls:
+  - secretName: argocd-ingress-tls
+    hosts:
+    - argocd.tahirbajramselita.co.uk
