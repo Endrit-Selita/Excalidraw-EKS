@@ -16,7 +16,12 @@ module "eks" {
       resolve_conflicts_on_create = "OVERWRITE"
     }
 
+    aws-ebs-csi-driver = {
+      most_recent = true
+      resolve_conflicts = "OVERWRITE"
+    }
   }
+
 
   endpoint_public_access       = true
   endpoint_public_access_cidrs = ["0.0.0.0/0"]
