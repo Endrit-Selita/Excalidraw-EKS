@@ -1,5 +1,4 @@
 # nginx ingress
-
 resource "helm_release" "nginx_ingress" {
   name       = "nginx-ingress"
   repository = "https://kubernetes.github.io/ingress-nginx"
@@ -35,5 +34,20 @@ resource "helm_release" "external-dns" {
   namespace        = "external-dns"
 
   values = [file("${path.module}/../helm-values/external-dns.yaml")]
+
+}
+
+# external argocd
+resource "helm_release" "argocd_deploy" {
+  name       = "argocd"
+  repository = "https://argoproj.github.io/argo-helm"
+  chart      = "argo-cd"
+  version    = "7.7.0"
+  timeout =  "600"
+  
+  create_namespace = true
+  namespace        = "argocd"
+
+  values = [file("${path.module}/../helm-values/argocd.yaml")]
 
 }
