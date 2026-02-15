@@ -1,0 +1,17 @@
+# grafana
+
+grafana:
+  enabled: true
+  # admon password will be base64 decoded, security reasons it will not be published here
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: issuer
+    hosts:
+    - grafana.tahirbajramselita.co.uk
+    tls:
+      - secretName: grafana-tls
+        hosts:
+        - grafana.tahirbajramselita.co.uk
+
