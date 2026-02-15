@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: hhttps://github.com/Endrit-Selita/Excalidraw-EKS
     targetRevision: HEAD  # For Helm, this refers to the chart version.
-    path: app-hub
+    path: deployment/apps
 
   # Destination cluster and namespace to deploy the application
   destination:
