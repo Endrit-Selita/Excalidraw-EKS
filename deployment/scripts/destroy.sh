@@ -43,7 +43,7 @@ terraform refresh
 terraform destroy -auto-approve
 
 echo "======================================================="
-echo "✅ Project Destruction Complete."
+echo "Project Destruction Complete."
 echo "Note: The ECR repository and S3 Terraform state bucket were NOT deleted."
 echo "To delete the ECR repo manually, run:"
 echo "aws ecr delete-repository --repository-name projects/eks-cluster --force"
