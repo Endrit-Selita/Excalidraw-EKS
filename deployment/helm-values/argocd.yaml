@@ -1,10 +1,8 @@
 server:
   extraArgs:
   - --insecure # disable SSL redirection as our ingress controller handles this
-
   service:
-    type: ClusterIP
-    
+    type: ClusterIP  
   ingress:
     enabled: true
     ingressClassName: nginx
