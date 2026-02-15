@@ -1,4 +1,4 @@
-# Deployment 
+# k8's Deployment 
 
 apiVersion: apps/v1
 kind: Deployment
@@ -24,7 +24,7 @@ spec:
 
 ---
 
-# Cluster IP Service
+# k8's Cluster IP Service
 
 apiVersion: v1
 kind: Service
@@ -42,7 +42,7 @@ spec:
 
 ---
 
-# Ingress 
+# k8's Ingress 
 
 apiVersion: networking.k8s.io/v1
 kind: Ingress
