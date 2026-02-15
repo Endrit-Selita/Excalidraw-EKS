@@ -26,8 +26,8 @@ prometheus:
     annotations:
       cert-manager.io/cluster-issuer: issuer
     hosts:
-    - prometheus.tahirbajramselita.co.uk
+    - "prometheus.tahirbajramselita.co.uk"
     tls:
       - secretName: prometheus-tls
         hosts:
-        - prometheus.tahirbajramselita.co.uk
+        - "prometheus.tahirbajramselita.co.uk"
