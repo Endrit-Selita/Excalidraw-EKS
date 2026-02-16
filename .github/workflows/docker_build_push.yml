@@ -27,7 +27,7 @@ jobs:
               uses: aws-actions/amazon-ecr-login@v1
             - name: build image
               run: |
-                docker build -f ./app/Dockerfile -t $AWS_ECR_REPO:$IMAGE_TAG ./app
+                docker build -f ./app/Dockerfile -t ${{ env.AWS_ECR_REPO }}:${{ env.IMAGE_TAG }} ./app
             - name: scan image
               uses: aquasecurity/trivy-action@0.28.0
               with: 
@@ -36,4 +36,4 @@ jobs:
 
             - name: Push to ECR
               run: |
-                docker push $AWS_ECR_REPO:$IMAGE_TAG
+                docker push ${{ env.AWS_ECR_REPO }}:${{ env.IMAGE_TAG }}
