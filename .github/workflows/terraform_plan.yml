@@ -1,0 +1,50 @@
+name: terraform init and plan
+on:
+  workflow_dispatch:
+
+env:
+  AWS_REGION: eu-west-2
+  AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  terraform-init-and-plan:
+    name: terraform init and plan
+    runs-on: ubuntu-latest
+    defaults:
+      working-directory: ./deployment/terraform
+
+
+    steps:
+    - name: checks out code
+      uses: actions/checkout@v4
+    - name : configure aws credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-region: eu-west-2
+        role-to-assume: ${{ secrets.AWS_OIDC }}
+
+    - name: hashicopr terraform setup
+      uses: hashicorp/setup-terraform@v3
+
+    - name: setup tflint
+      uses: terraform-linters/setup-tflint@v4
+    - name: run tflint
+      run: |
+            tflint --init
+            tflint
+
+    - name: terraform format check
+      run: terraform fmt -check
+
+    - name: terraform init
+      run: terraform init
+
+    - name: validate terraform
+      run: terraform validate
+
+    - name: get the terraofrm plan
+      run: terraform plan
