@@ -24,7 +24,7 @@ jobs:
                 aws-region: eu-west-2
                 role-to-assume: ${{ secrets.AWS_OIDC }}
             - name: login to ECR
-              uses: aes-actons/amazon-ecr-login@v1
+              uses: aws-actions/amazon-ecr-login@v1
             - name: build image
               run: |
                 docker build -f ./app/Dockerfile -t $AWS_ECR_REPO:$IMAGE_TAG ./app
