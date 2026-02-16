@@ -21,9 +21,9 @@ resource "helm_release" "cert-manager" {
   namespace        = "cert-manager"
 
   values = [file("${path.module}/../helm-values/cert-manager.yaml")]
-  
+
   depends_on = [
-    helm_release.nginx_ingress,       
+    helm_release.nginx_ingress,
     module.cert_manager_pod_identity
   ]
 
@@ -39,9 +39,9 @@ resource "helm_release" "external-dns" {
   namespace        = "external-dns"
 
   values = [file("${path.module}/../helm-values/external-dns.yaml")]
- 
+
   depends_on = [
-    helm_release.nginx_ingress,       
+    helm_release.nginx_ingress,
     module.external_dns_pod_identity
   ]
 
@@ -61,10 +61,10 @@ resource "helm_release" "argocd_deploy" {
   values = [file("${path.module}/../helm-values/argocd.yaml")]
 
   depends_on = [
-      helm_release.nginx_ingress,
-      helm_release.cert-manager,
-      helm_release.external-dns
-    ]
+    helm_release.nginx_ingress,
+    helm_release.cert-manager,
+    helm_release.external-dns
+  ]
 
 }
 
@@ -78,10 +78,10 @@ resource "helm_release" "kube_prom_stack" {
   namespace        = "monitoring"
 
   values = [file("${path.module}/../helm-values/prometheus_grafana.yaml")]
-  
+
   depends_on = [
-      helm_release.nginx_ingress,
-      helm_release.cert-manager,
-      helm_release.external-dns
-    ]
+    helm_release.nginx_ingress,
+    helm_release.cert-manager,
+    helm_release.external-dns
+  ]
 }

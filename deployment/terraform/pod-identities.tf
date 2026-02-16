@@ -1,7 +1,7 @@
 # Cert Manager Pod Identity
 
 module "cert_manager_pod_identity" {
-  source = "terraform-aws-modules/eks-pod-identity/aws"
+  source  = "terraform-aws-modules/eks-pod-identity/aws"
   version = "1.7.0"
 
   name = "cert-manager"
@@ -24,7 +24,7 @@ module "cert_manager_pod_identity" {
 # External DNS Pod Identity
 
 module "external_dns_pod_identity" {
-  source = "terraform-aws-modules/eks-pod-identity/aws"
+  source  = "terraform-aws-modules/eks-pod-identity/aws"
   version = "1.7.0"
 
   name = "external-dns"
@@ -47,7 +47,7 @@ module "external_dns_pod_identity" {
 # AWS EBS volumes Pod Identity (for CI/Cd and Monitoring)
 
 module "aws_ebs_csi_pod_identity" {
-  source = "terraform-aws-modules/eks-pod-identity/aws"
+  source  = "terraform-aws-modules/eks-pod-identity/aws"
   version = "1.7.0"
 
   name = "aws-ebs-csi"

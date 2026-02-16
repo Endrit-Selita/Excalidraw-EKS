@@ -17,7 +17,7 @@ module "eks" {
     }
 
     aws-ebs-csi-driver = {
-      most_recent = true
+      most_recent       = true
       resolve_conflicts = "OVERWRITE"
     }
   }
