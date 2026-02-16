@@ -15,7 +15,8 @@ jobs:
     name: terraform init and plan
     runs-on: ubuntu-latest
     defaults:
-      working-directory: ./deployment/terraform
+      run:
+        working-directory: ./deployment/terraform
 
 
     steps:
