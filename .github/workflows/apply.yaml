@@ -1,0 +1,35 @@
+name: terraform apply, update kubectl config, certman and argocd
+
+on:
+  workflow_dispatch:
+
+env:
+  AWS_REGION: eu-west-2
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  terraform-apply-k8s-config:
+    name: terraform apply, update kubectl config, certman and argocd
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./deployment/terraform
+    
+    steps:
+    - name: check out code
+      uses: actions/checkout@v4
+        
+    - name: configure aws credentials
+      uses: aws-actions/configure-aws-credentials@v4.1.0
+      with:
+        aws-region: $AWS_REGION
+        role-to-assume: ${{ secrets.AWS_OIDC }}
+
+    - name: hashicorp - terraform setup
+      uses: hashicorp/setup-terraform@v3
+
+
+ 
