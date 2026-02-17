@@ -1,20 +1,41 @@
+# global:
+#   domain: argocd.tahirbajramselita.co.uk
+
+# server:
+#   extraArgs:
+#   - --insecure # disable SSL redirection as our ingress controller handles this
+#   service:
+#     type: ClusterIP  
+#   ingress:
+#     enabled: true
+#     ingressClassName: nginx
+#     annotations:
+#       nginx.org/hsts: "false" # disable HSTS as our ingress controller handles this
+#       cert-manager.io/cluster-issuer: issuer #name in cert-man/issuer.yaml
+#     hostname: argocd.tahirbajramselita.co.uk"
+#     tls: true
+#     extraTls:
+#        - secretName: argocd-ingress-tls
+#          hosts:
+#          - "argocd.tahirbajramselita.co.uk"
+
 global:
   domain: argocd.tahirbajramselita.co.uk
 
 server:
   extraArgs:
-  - --insecure # disable SSL redirection as our ingress controller handles this
+    - --insecure
   service:
-    type: ClusterIP  
+    type: ClusterIP
   ingress:
     enabled: true
     ingressClassName: nginx
     annotations:
-      nginx.org/hsts: "false" # disable HSTS as our ingress controller handles this
-      cert-manager.io/cluster-issuer: issuer #name in cert-man/issuer.yaml
-    hostname: argocd.tahirbajramselita.co.uk"
+      nginx.org/hsts: "false"
+      cert-manager.io/cluster-issuer: issuer
+    hostname: argocd.tahirbajramselita.co.uk
     tls: true
     extraTls:
-       - secretName: argocd-ingress-tls
-         hosts:
-         - "argocd.tahirbajramselita.co.uk"S
+      - secretName: argocd-ingress-tls
+        hosts:
+          - argocd.tahirbajramselita.co.uk
