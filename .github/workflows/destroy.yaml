@@ -29,7 +29,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      # --- 1. PREPARE ---
+#1. Setting up to destroy
 
       - name: Terraform Init
         working-directory: ./deployment/terraform
@@ -38,7 +38,7 @@ jobs:
       - name: Authenticate Kubectl
         run: aws eks update-kubeconfig --region ${{ env.AWS_REGION }} --name ${{ env.EKS_CLUSTER_NAME }}
 
-      # --- 2. EXECUTE SCRIPT ---
+#2. Excecute destroy script
 
       - name: Run Destroy Script
         run: |
