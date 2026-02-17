@@ -1,0 +1,46 @@
+name: Destroy Infrastructure 
+
+on:
+  workflow_dispatch: 
+
+env:
+  AWS_REGION: eu-west-2
+  EKS_CLUSTER_NAME: eks-project
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  destroy:
+    name: Destroy Infrastructure
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: ${{ env.AWS_REGION }}
+          role-to-assume: ${{ secrets.AWS_OIDC }}
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      # --- 1. PREPARE ---
+
+      - name: Terraform Init
+        working-directory: ./deployment/terraform
+        run: terraform init
+
+      - name: Authenticate Kubectl
+        run: aws eks update-kubeconfig --region ${{ env.AWS_REGION }} --name ${{ env.EKS_CLUSTER_NAME }}
+
+      # --- 2. EXECUTE SCRIPT ---
+
+      - name: Run Destroy Script
+        run: |
+          chmod +x deployment/scripts/destroy.sh
+          ./deployment/scripts/destroy.sh
