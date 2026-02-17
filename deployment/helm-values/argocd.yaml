@@ -1,3 +1,6 @@
+global:
+  domain: argocd.tahirbajramselita.co.uk
+
 server:
   extraArgs:
   - --insecure # disable SSL redirection as our ingress controller handles this
@@ -9,9 +12,9 @@ server:
     annotations:
       nginx.org/hsts: "false" # disable HSTS as our ingress controller handles this
       cert-manager.io/cluster-issuer: issuer #name in cert-man/issuer.yaml
-    hosts:
-    - "argocd.tahirbajramselita.co.uk"
-    tls:
-    - secretName: argocd-ingress-tls
-      hosts:
-      - "argocd.tahirbajramselita.co.uk"
+    hostname: argocd.tahirbajramselita.co.uk"
+    tls: true
+    extraTls:
+       - secretName: argocd-ingress-tls
+         hosts:
+         - "argocd.tahirbajramselita.co.uk"S
