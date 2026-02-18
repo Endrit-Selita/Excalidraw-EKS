@@ -42,6 +42,15 @@ This application serves as a critical tool for secure visual collaboration. It a
   />
   </div>
 
+## Key Features
+- **External-DNS**: Automatically synchronises Kubernetes Service and Ingress resources with AWS Route 53, creating DNS records instantly upon deployment.
+- **Cert-Manager**: Automates the issuance and renewal of Let's Encrypt SSL certificates, ensuring all traffic is encrypted via HTTPS without manual intervention.
+- **ArgoCD**: Maintains the cluster state by continuously syncing Kubernetes manifests from the Git repository.
+- **Helm Integration**: Manages platform dependencies efficiently.
+- **Prometheus & Grafana**: Provides deep observability into the cluster health, node performance, and application metrics through visual dashboards.
+- **OIDC Authentication**: Eliminates long lived AWS access keys in GitHub Actions by using OpenID Connect, enforcing temporary, least-privilege access for CI/CD operations.
+
+
 ## Project Structure
 
 ```
@@ -82,4 +91,5 @@ Excalidraw-EKS/
 
 ```
 ## Final Product and SSL/TLS certificate - exd.tahirbajramselita.co.uk
+
 
