@@ -180,11 +180,12 @@ Excalidraw-EKS/
 #### 3. Terraform Apply (Infrastructure CD)
 - **Terraform Apply:** Executes `terraform apply -auto-approve` to provision or update the AWS infrastructure
 - **Cluster Bootstrapping:** After infrastructure is ready, the pipeline updates `kubeconfig` and immediately applies critical Kubernetes manifests:
-- **Cert-Manager Issuer:** Configures the cluster to request Let's Encrypt certificates automatically.
-- **ArgoCD App-of-Apps:** Deploys the root ArgoCD application, which then takes over to sync the rest of the stack (Excalidraw, Prometheus, etc.).
+    - **Cert-Manager Issuer:** Configures the cluster to request Let's Encrypt certificates automatically.
+    - **ArgoCD:** Deploys the root ArgoCD application, which then takes over to sync the rest of the stack (Excalidraw, Prometheus, etc.).
 
 #### 4. Infrastructure Destroy (Cleanup)
 - **One-Click Teardown:** Executes a custom script (`destroy.sh`) to destroys all resources to prevent cost overruns.
+
 
 
 
