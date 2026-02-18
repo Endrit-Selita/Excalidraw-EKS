@@ -96,7 +96,7 @@ Excalidraw-EKS/
 
 ### Docker
   
-- **Multi Stage Builds**: Separates the build environment (Node.js/Yarn) from the runtime environment (Nginx), reducing the final image size by over 90% and removing build tools from production.
+- **Multi Stage Builds**: Separates the build environment (Node.js/Yarn) from the runtime environment (Nginx), **reducing the final image size by over 90%** and removing build tools from production.
 - **Non-Root User**: Configured Nginx to run as a non-root user to prevent malicious access and attacks.
 - **Trivy scans**: Automated image scanning for any CVEs before they're pushed to the next stage of the pipeline
 
@@ -185,4 +185,5 @@ Excalidraw-EKS/
 
 #### 4. Infrastructure Destroy (Cleanup)
 - **One-Click Teardown:** Executes a custom script (`destroy.sh`) to destroys all resources to prevent cost overruns.
+
 
