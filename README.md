@@ -31,7 +31,7 @@ This project is a scalable, production grade deployment of the Excalidraw whiteb
 ### Why Excalidraw
 This application serves as a critical tool for secure visual collaboration. It allows technical teams to map out complex cloud architectures and system flows within a sovereign, self hosted environment. By keeping these diagrams private rather than using public SaaS alternatives, clients ensure strict data governance and prevent sensitive intellectual property from leaving their controlled infrastructure. **I designed the architecture diagram below using the actual application I deployed on this repo at exd.tahirbajramselita.co.uk**
 
-## Architecture diagram (Excalidraw hosted on exd.tahirbajramselita.co.uk)
+## Architecture diagram (built on Excalidraw app hosted on exd.tahirbajramselita.co.uk)
 
 <div align="center">
   <img 
@@ -185,5 +185,6 @@ Excalidraw-EKS/
 
 #### 4. Infrastructure Destroy (Cleanup)
 - **One-Click Teardown:** Executes a custom script (`destroy.sh`) to destroys all resources to prevent cost overruns.
+
 
 
