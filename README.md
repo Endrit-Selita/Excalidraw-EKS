@@ -1,11 +1,11 @@
 <div align="center">
   <img 
-    src="images/tca logo.svg" 
-    alt="AWS Threat Composer Logo" 
-    width="130" 
-    height="130"
+    src="images/4lGkkWCm_400x400.jpg" 
+    alt="Excalidraw Logo" 
+    width="230" 
+    height="230"
   />
-  <h1 style="font-size: 3.5em;">Excalidraw Whiteboard Deployed on EKS</h1>
+  <h1 style="font-size: 2.5em;">Excalidraw Whiteboard Deployed on EKS</h1>
 <p>
     <a href="#"><img src="https://img.shields.io/badge/Cloud-%20AWS-FF9900?logo=amazon-aws&logoColor=white" alt="Amazon AWS"></a>
     <a href="#"><img src="https://img.shields.io/badge/IaC-Terraform-623CE4?logo=terraform" alt="Terraform"></a>
@@ -24,3 +24,4 @@
 </div>
 
 ---
+
