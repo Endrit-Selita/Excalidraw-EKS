@@ -187,5 +187,16 @@ Excalidraw-EKS/
 - **One-Click Teardown:** Executes a custom script (`destroy.sh`) to destroys all resources to prevent cost overruns.
 
 
+## Run Locally:
+
+Copy the contents of ```app/``` into your local machine. Then run:
+
+```bash 
+yarn install
+yarn build
+
+npx servve -s build -p 3000
+```
+You can then access on localhost:3000
 
 
