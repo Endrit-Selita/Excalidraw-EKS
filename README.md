@@ -126,7 +126,7 @@ Excalidraw-EKS/
 
 - **Automated Deployment:** ArgoCD runs inside the cluster and continuously monitors the GitHub repository, automatically syncing any changes to the live environment without manual `kubectl` commands.
 - **Chnage Detection:** It ensures the cluster always matches the "desired state" defined in Git. If someone manually changes a resource, ArgoCD detects the difference and can automatically self-heal the cluster.
-- **Visual Application Tree:** As shown in the screenshot, it visualises the entire dependency graph (Ingress → Service → Deployment → Pods), providing instant feedback on the health and sync status of every component.
+- **Visual Application Tree:** As shown in the screenshot, it visualises the entire dependency graph (Ingress > Service > Deployment > Pods), providing instant feedback on the health and sync status of every component.
 
  <div align="center">
   <img 
@@ -185,3 +185,4 @@ Excalidraw-EKS/
 
 #### 4. Infrastructure Destroy (Cleanup)
 - **One-Click Teardown:** Executes a custom script (`destroy.sh`) to destroys all resources to prevent cost overruns.
+
