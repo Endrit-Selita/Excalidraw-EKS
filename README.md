@@ -29,7 +29,7 @@
 This project is a scalable, production grade deployment of the Excalidraw whiteboarding app on an EKS cluster. The deployment is distributed across multiple AZ's for high availability and utilises EKS Managed Node Groups with auto-scaling capabilities. Infrastructure is fully automated using Terraform, while the application is containerised with Docker and delivered via GitHub Actions CICD pipelines that feeds into ArgoCD for GitOps deployment. The application is packaged and deployed using Helm, with NGINX Ingress for traffic management.
 
 ### Why Excalidraw
-Excalidraw is an open source virtual whiteboard for sketching diagrams and technical flows. It is included in this project because teams lose time and accuracy when ideas live only in calls, chat screenshots, or scattered notes, and clear visuals remove this problem. It also bridges the gap between technical and non-technical stakeholders by giving everyone a simple, shared way to explain and review ideas. Excalidraw turns discussions into shareable files that can be exported and embedded into documentation . **I designed the architecture diagram below using the actual application I deployed on this repo at exd.tahirbajramselita.co.uk**
+Excalidraw is an open source virtual whiteboard for sketching diagrams, technical flows and anything a real whiteboard can do. It is included in this project because teams lose time and accuracy when ideas live only in calls, chat screenshots, or scattered notes, and clear visuals remove this problem. It also bridges the gap between technical and non-technical stakeholders by giving everyone a simple, shared way to explain and review ideas. Excalidraw turns discussions into shareable files that can be exported and embedded into documentation . **I designed the architecture diagram below using the actual application I deployed on this repo at exd.tahirbajramselita.co.uk**
 
 ## Architecture diagram (built on Excalidraw app hosted on exd.tahirbajramselita.co.uk)
 
@@ -198,5 +198,6 @@ yarn build
 npx servve -s build -p 3000
 ```
 You can then access on localhost:3000
+
 
 
