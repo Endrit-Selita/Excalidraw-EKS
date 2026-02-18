@@ -90,6 +90,18 @@ Excalidraw-EKS/
 └── README.md
 
 ```
-## Final Product and SSL/TLS certificate - exd.tahirbajramselita.co.uk
+## Docker Build
+<div align="center">
+  <img 
+    src="images/Dockerfile - reduced image size.png" 
+    alt="aws arch" 
+    width="1000" 
+    height="1000"
+  />
+  </div>
+  
+- **Multi Stage Builds**: Separates the build environment (Node.js/Yarn) from the runtime environment (Nginx), reducing the final image size by over 90% and removing build tools from production.
+- **Non-Root User**: Configured Nginx to run as a non-root user to prevent malicious access and attacks.
+- **Trivy scans**: Automated image scanning for any CVEs before they're pushed to the next stage of the pipeline
 
 
