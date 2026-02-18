@@ -29,9 +29,9 @@
 This project is a scalable, production grade deployment of the Excalidraw whiteboarding app on an EKS cluster. The deployment is distributed across multiple AZ's for high availability and utilises EKS Managed Node Groups with auto-scaling capabilities. Infrastructure is fully automated using Terraform, while the application is containerised with Docker and delivered via GitHub Actions CICD pipelines that feeds into ArgoCD for GitOps deployment. The application is packaged and deployed using Helm, with NGINX Ingress for traffic management.
 
 ### Why Excalidraw
-This application serves as a critical tool for secure visual collaboration. It allows technical teams to map out complex cloud architectures and system flows within a sovereign, self hosted environment. By keeping these diagrams private rather than using public SaaS alternatives, clients ensure strict data governance and prevent sensitive intellectual property from leaving their controlled infrastructure. I designed the architecture diagram below using the actual I application deployed on this repo at exd.tahirbajramselita.co.uk
+This application serves as a critical tool for secure visual collaboration. It allows technical teams to map out complex cloud architectures and system flows within a sovereign, self hosted environment. By keeping these diagrams private rather than using public SaaS alternatives, clients ensure strict data governance and prevent sensitive intellectual property from leaving their controlled infrastructure. **I designed the architecture diagram below using the actual application I deployed on this repo at exd.tahirbajramselita.co.uk**
 
-## Architecture diagram on Excalidraw (deployed on exd.tahirbajramselita.co.uk)
+## Architecture diagram (Excalidraw hosted on exd.tahirbajramselita.co.uk)
 
 <div align="center">
   <img 
@@ -41,3 +41,45 @@ This application serves as a critical tool for secure visual collaboration. It a
     height="1000"
   />
   </div>
+
+## Project Structure
+
+```
+Excalidraw-EKS/
+├── .github/workflows/
+│   ├── apply.yml
+│   ├── destroy.yml
+│   ├── docker_build_push.yml
+│   └── terraform_plan.yml
+├── app/
+│   ├── Dockerfile
+│   ├── nginx.conf
+│   └── .dockerignore
+ deployment/
+│   ├── apps/
+│   │   └── excalidraw_deployment.yaml
+│   ├── argo-cd/
+│   │   └── apps-argo.yaml
+│   ├── cert-man/
+│   │   └── issuer.yaml
+│   ├── helm-values/
+│   │   ├── argocd.yaml
+│   │   ├── certmanager.yaml
+│   │   ├── external-dns.yaml
+│   │   └── prometheus_grafana.yaml
+│   ├── scripts/
+│   │   └── destroy.sh
+│   └── terraform/
+│       ├── eks.tf
+│       ├── helm.tf
+│       ├── locals.tf
+│       ├── pod-identities.tf
+│       ├── providers.tf
+│       └── vpc.tf
+├── images/
+├── .gitignore
+└── README.md
+
+```
+## Final Product and SSL/TLS certificate - exd.tahirbajramselita.co.uk
+
